@@ -1,25 +1,40 @@
 <!DOCTYPE html>
-<html><head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>This Tax of Mine</title>
     <link rel="stylesheet" href="./css/main.css">
-  </head>
-  <body>
-      <div class="wrapper">
-    <div class="notifications">
-            <div id="text">
-                    <p id="start">You have to pay taxes.</p>
-                </div>
-    </div>
-    <div class="content">
-                    <p> STATUS</p>
-                    <p id="money">Money: 5000</p>
-                    <input type="button" onclick="onWork()" value="Work" />
-    </div>
-</div>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous">
+    <style>
+        body {
+            margin: 0;
+        }
+
+        canvas {
+            width: 1280px;
+            height: 768px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let THREE = require("three");
+        let TWEEN = require("@tweenjs/tween.js");
     </script>
+    <script src="./js/scene.js"></script>
+    <script src="./js/detector.js"></script>
     <script src="./js/renderer.js"></script>
-</body></html>
+    <script src="./js/intro.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            window.scrollTo(0, 0);
+            initRenderer();
+            sm.changeScene(new Scene(intro.init, intro.update, intro.deinit));
+        }, false);
+
+    </script>
+    <canvas id='canvas'></canvas>
+</body>
+
+</html>
